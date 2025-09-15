@@ -49,3 +49,7 @@
 .days__container > button {
   height: 100px;
 }
+
+.to-dos__list {
+  list-style-type: none;
+}

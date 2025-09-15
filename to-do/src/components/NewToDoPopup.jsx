@@ -54,12 +54,19 @@ const NewToDoPopup = () => {
                     }}>Submit</button>
                 </form>
             </Popup>
-            <ul>
+            <ul className='to-dos__list'>
                 {todos.map(todo => (
                     <li key={todo.id}>
-                        {todo.task}
-                        <br/>
-                        {todo.dueDate}
+                        <label>
+                            <input type='checkbox'/>
+                                <span>
+                                {todo.task}
+                                <br/>
+                                {todo.dueDate}
+                                </span>
+                            
+                        </label>
+                        
                     </li>
                 ))}
             </ul>
