@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 export default function ProjectsDropdown() {
-  const [cities, setCities] = useState([]);
+  const [tags, setTags] = useState([]);
   const [selectedProject, setSelectedProject] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedTag, setSelectedTag] = useState("");
 
   const projects = {
-    France: ["Paris", "Marseille", "Lille", "Lyon"],
-    Usa: ["New York", "San Francisco", "Austin", "Dallas"],
-    Brazil: ["São Paulo", "Rio de Janeiro", "Salvador"]
+    Chores: ["Kitchen", "Bathroom", "Daily", "Weekly"],
+    Shopping: ["Groceries", "Personal", "Pets", "Misc"],
+    Personal: ["Learning", "Social", "Self-Care", "Goals"]
   };
 
   const projectList = Object.keys(projects).map(key => ({
@@ -18,16 +18,16 @@ export default function ProjectsDropdown() {
   function handleProjectSelect(e) {
     console.log("Selected project", e.target.value);
     const projectSel = e.target.value;
-    const citiesSel = projectSel !== "" ? projects[projectSel] : [];
+    const tagsSel = projectSel !== "" ? projects[projectSel] : [];
     setSelectedProject(projectSel);
-    setCities(citiesSel);
-    setSelectedCity("");
+    setTags(tagsSel);
+    setSelectedTag("");
   }
 
-  function handleCitySelect(e) {
-    console.log("Selected city", e.target.value);
-    const citiesSel = e.target.value;
-    setSelectedCity(citiesSel);
+  function handleTagSelect(e) {
+    console.log("Selected tag", e.target.value);
+    const tagsSel = e.target.value;
+    setSelectedTag(tagsSel);
   }
 
   return (
@@ -47,14 +47,14 @@ export default function ProjectsDropdown() {
         </select>
 
         <select
-          name="Cities"
-          onChange={e => handleCitySelect(e)}
-          value={selectedCity}
+          name="Tags"
+          onChange={e => handleTagSelect(e)}
+          value={selectedTag}
         >
-          <option value="">Select the city</option>
-          {cities.map((city, key) => (
-            <option key={key} value={city}>
-              {city}
+          <option value="">Select the tag</option>
+          {tags.map((tag, key) => (
+            <option key={key} value={tag}>
+              {tag}
             </option>
           ))}
         </select>
