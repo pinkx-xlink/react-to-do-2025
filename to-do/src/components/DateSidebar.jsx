@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 
 const DateSidebar = () => {
 
-  const [days] = useState(['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']);
+  const [days] = useState(['1', '2', '3', '4', '5', '6', '7']);
   const today = new Date();
 
+  
   return (
     <>
     <div className='days__container'>
