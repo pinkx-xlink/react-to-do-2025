@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import ProjectsDropdown from './ProjectsDropdown';
 
 let nextId = 0;
 
@@ -43,6 +44,7 @@ const NewToDoPopup = () => {
                     onChange={e => setDueDate(e.target.value)}
                     />
                     <br/>
+                    <ProjectsDropdown />
                     <button 
                     type="button" 
                     id="submitButton" 

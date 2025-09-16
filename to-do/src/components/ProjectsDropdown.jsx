@@ -1,26 +1,25 @@
 import React, { useState } from "react";
-import "./styles.css";
 
 export default function ProjectsDropdown() {
   const [cities, setCities] = useState([]);
-  const [selectedCounty, setSelectedCountry] = useState("");
+  const [selectedProject, setSelectedProject] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
 
-  const countries = {
+  const projects = {
     France: ["Paris", "Marseille", "Lille", "Lyon"],
     Usa: ["New York", "San Francisco", "Austin", "Dallas"],
     Brazil: ["São Paulo", "Rio de Janeiro", "Salvador"]
   };
 
-  const countryList = Object.keys(countries).map(key => ({
+  const projectList = Object.keys(projects).map(key => ({
     name: key
   }));
 
-  function handleCountrySelect(e) {
-    console.log("Selected country", e.target.value);
-    const countrySel = e.target.value;
-    const citiesSel = countrySel !== "" ? countries[countrySel] : [];
-    setSelectedCountry(countrySel);
+  function handleProjectSelect(e) {
+    console.log("Selected project", e.target.value);
+    const projectSel = e.target.value;
+    const citiesSel = projectSel !== "" ? projects[projectSel] : [];
+    setSelectedProject(projectSel);
     setCities(citiesSel);
     setSelectedCity("");
   }
@@ -32,19 +31,17 @@ export default function ProjectsDropdown() {
   }
 
   return (
-    <div className="App">
-      <h1>Example DropDown Coutries and Cities</h1>
-
-      <div className="Container">
+    <div className="project-dropdown">
+      <div className="project-dropdown__container">
         <select
-          name="Countries"
-          onChange={e => handleCountrySelect(e)}
-          value={selectedCounty}
+          name="Projects"
+          onChange={e => handleProjectSelect(e)}
+          value={selectedProject}
         >
-          <option value="">Select the country</option>
-          {countryList.map((country, key) => (
-            <option key={key} value={country.name}>
-              {country.name}
+          <option value="">Select the project</option>
+          {projectList.map((project, key) => (
+            <option key={key} value={project.name}>
+              {project.name}
             </option>
           ))}
         </select>
